@@ -13,7 +13,7 @@ public class Card {
     }
 
 
-    public Card(String suit, String symbol, int values) {
+    public Card(String suit, String symbol, int value) {
         this.suit = suit;
         this.symbol = symbol;
         this.value = value;
