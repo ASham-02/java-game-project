@@ -8,15 +8,14 @@ public class CardGame {
     ArrayList<Card> deckOfCards = new ArrayList<Card>();
 
     public CardGame(ArrayList<Card> deckOfCards) {
-        this.deckOfCards = getDeck();
+        this.deckOfCards = deckOfCards;
     }
-
-    ArrayList <Card> getDeck() {
+    
+    public static ArrayList<Card> getDeck() {
         ArrayList<Card> newDeck = new ArrayList<>();
         for (Suit suit : Suit.values()) {
             for (Symbol symbol : Symbol.values()) {
-                newDeck.add(new Card(String suit, symbol));
-                new Card(suit, symbol);
+                newDeck.add(new Card(suit, symbol));
             }
         }
         return newDeck;

@@ -6,13 +6,13 @@ public enum Suit {
     DIAMONDS("♦"),
     SPADES("♠");
 
-    private final String symbol;
+    private final String suit;
 
-    Suit(String symbol) {
-        this.symbol = symbol;
+    Suit(String suit) {
+        this.suit = suit;
     }
 
     public String getSymbol() {
-        return symbol;
+        return suit;
     }
 }
