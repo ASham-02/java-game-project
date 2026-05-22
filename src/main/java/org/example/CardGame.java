@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class CardGame {
 
-    ArrayList<Card> deckOfCards = new ArrayList<Card>();
+    ArrayList<Card> deckOfCards = new ArrayList<Card>(); //Creates new deck to
 
     public CardGame(ArrayList<Card> deckOfCards) {
         this.deckOfCards = deckOfCards;
@@ -19,6 +19,14 @@ public class CardGame {
             }
         }
         return newDeck;
+    }
+
+    public Card dealCard() {
+        if (deckOfCards.isEmpty()) {
+            return null;
+        }
+
+        return deckOfCards.remove(0);
     }
 
     public void shuffleDeck () {
