@@ -2,21 +2,20 @@ package org.example;
 
 public class Card {
 
-    private String suit;
-    private String symbol;
+    private Suit suit;
+    private Symbol symbol;
 
 
-    public Card(String suit, String symbol) {
+    public Card( Suit suit, Symbol symbol) {
         this.suit = suit;
         this.symbol = symbol;
     }
 
-
-    public String getSuit() {
+    public Suit getSuit() {
         return suit;
     }
 
-    public String getSymbol() {
+    public Symbol getSymbol() {
         return symbol;
     }
 
@@ -26,7 +25,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return symbol.getSymbol() + suit.getSuit
+        return symbol.getSymbol() + suit.getSuit();
     }
 }
 

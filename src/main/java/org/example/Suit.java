@@ -12,7 +12,7 @@ public enum Suit {
         this.suit = suit;
     }
 
-    public String getSymbol() {
+    public String getSuit() {
         return suit;
     }
 }
