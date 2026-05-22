@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CardGame {
 
@@ -14,10 +15,14 @@ public class CardGame {
         ArrayList<Card> newDeck = new ArrayList<>();
         for (Suit suit : Suit.values()) {
             for (Symbol symbol : Symbol.values()) {
-                newDeck.add(new Card(suit, symbol));
+                newDeck.add(new Card(String suit, symbol));
                 new Card(suit, symbol);
             }
         }
         return newDeck;
+    }
+
+    public void shuffleDeck () {
+        Collections.shuffle(deckOfCards);
     }
 }
