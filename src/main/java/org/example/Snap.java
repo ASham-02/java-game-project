@@ -32,6 +32,24 @@ public class Snap extends CardGame {
         System.out.println("Welcome to Snap!");
         System.out.println("Press Enter to deal a card.");
 
+        while (true) {
+
+            scanner.nextLine();
+
+            Card currentCard = dealCard();
+
+            if (currentCard == null) {
+                System.out.println("No cards left. Game over.");
+            }
+
+            System.out.println("Card dealt: " + currentCard);
+
+            if (isSnap(previousCard, currentCard)) {
+                System.out.println("SNAP! You Win!");
+            }
+
+            previousCard = updatePreviousCard(currentCard);
+        }
     }
 
 }
