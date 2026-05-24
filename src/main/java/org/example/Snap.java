@@ -23,5 +23,15 @@ public class Snap extends CardGame {
     public Card updatePreviousCard(Card currentCard) {
         return currentCard;
     }
+    public void play() {
+
+        Card previousCard = null;
+
+        shuffleDeck();
+
+        System.out.println("Welcome to Snap!");
+        System.out.println("Press Enter to deal a card.");
+
+    }
 
 }
