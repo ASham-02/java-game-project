@@ -1,4 +1,27 @@
 package org.example;
 
-public class Snap {
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Snap extends CardGame {
+
+    private Scanner scanner;
+
+    public Snap(ArrayList<Card> deckOfCards) {
+        super(deckOfCards);
+        this.scanner = new Scanner(System.in);
+    }
+
+    public boolean isSnap(Card previousCard, Card currentCard) {
+        if (previousCard == null || currentCard == null) {
+            return false;
+        }
+
+        return previousCard.getSymbol() == currentCard.getSymbol();
+    }
+
+    public Card updatePreviousCard(Card currentCard) {
+        return currentCard;
+    }
+
 }

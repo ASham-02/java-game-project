@@ -5,15 +5,12 @@ import java.util.ArrayList;
 import static org.example.CardGame.getDeck;
 
 public class Main {
-    static void main() {
-
+    public static void main(String[] args) {
 
         ArrayList<Card> deck = CardGame.getDeck();
 
-        CardGame game = new CardGame(deck);
+        Snap snap = new Snap(deck);
 
-        System.out.println("ORIGINAL DECK");
-        System.out.println(game.getDeckOfCards());
-
+        snap.play();
     }
 }
