@@ -40,12 +40,14 @@ public class Snap extends CardGame {
 
             if (currentCard == null) {
                 System.out.println("No cards left. Game over.");
+                break;
             }
 
             System.out.println("Card dealt: " + currentCard);
 
             if (isSnap(previousCard, currentCard)) {
                 System.out.println("SNAP! You Win!");
+                break;
             }
 
             previousCard = updatePreviousCard(currentCard);
