@@ -45,6 +45,10 @@ public class CardGame {
         return deckOfCards;
     }
 
+    public ArrayList<Card> getDeckOfCards() {
+        return deckOfCards;
+    }
+
     public void shuffleDeck () {
         Collections.shuffle(deckOfCards);
     }
