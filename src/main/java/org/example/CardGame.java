@@ -48,7 +48,6 @@ public class CardGame {
                         // Sort by value instead
                         return card1.getValue() - card2.getValue();
                     }
-
                     return suitCompare;
                 }
         );
