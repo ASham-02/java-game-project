@@ -51,6 +51,7 @@ public class Snap extends CardGame {
         //Player one starting game
         Player currentPlayer = playerOne;
 
+        // Greeting message
         System.out.println("Welcome to Snap!");
         System.out.println("Press Enter to deal a card.");
 
