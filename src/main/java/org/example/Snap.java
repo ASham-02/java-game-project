@@ -27,6 +27,18 @@ public class Snap extends CardGame {
         return previousCard.getSymbol() == currentCard.getSymbol();
     }
 
+    // Returns the next player
+    public Player switchPlayer(Player currentPlayer) {
+
+        // Guard clause
+        if (currentPlayer == playerOne) {
+            return playerTwo;
+        }
+
+        // Otherwise return player one
+        return playerOne;
+    }
+
     public void play() {
 
         Scanner scanner = new Scanner(System.in);
@@ -36,10 +48,15 @@ public class Snap extends CardGame {
         // Randomly shuffles the deck before starting
         shuffleDeck();
 
+        //Player one starting game
+        Player currentPlayer = playerOne;
+
         System.out.println("Welcome to Snap!");
         System.out.println("Press Enter to deal a card.");
 
         while (true) {
+
+            System.out.println(currentPlayer.getName() + " turn. Please press enter.");
 
             // Waits for the player to press Enter
             scanner.nextLine();
