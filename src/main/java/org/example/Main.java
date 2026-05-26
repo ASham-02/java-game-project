@@ -8,9 +8,5 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Card> deck = CardGame.getDeck();
-
-        Snap snap = new Snap(deck);
-
-        snap.play();
     }
 }
