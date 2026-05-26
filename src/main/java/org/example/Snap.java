@@ -9,9 +9,13 @@ public class Snap extends CardGame {
     private Player playerOne;
     private Player playerTwo;
 
-    public Snap(ArrayList<Card> deckOfCards) {
+    public Snap(
+            ArrayList<Card> deckOfCards, Player playerOne, Player playerTwo) {
         super(deckOfCards);
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
     }
+
     // Returns true if both cards have the same symbol
     public boolean isSnap(Card previousCard, Card currentCard) {
         // Checks if either card is null
@@ -19,24 +23,8 @@ public class Snap extends CardGame {
         if (previousCard == null || currentCard == null) {
             return false;
         }
-
         // Compares the symbols of both cards
         return previousCard.getSymbol() == currentCard.getSymbol();
-    }
-    // Updates the previous card and returns the current card
-    public Card updatePreviousCard(Card currentCard) {
-        // Current card becomes the previous card
-        return currentCard;
-    }
-
-    public Snap(
-            ArrayList<Card> deckOfCards,
-            Player playerOne,
-            Player playerTwo
-    ) {
-        super(deckOfCards);
-        this.playerOne = playerOne;
-        this.playerTwo = playerTwo;
     }
 
     public void play() {
@@ -75,8 +63,8 @@ public class Snap extends CardGame {
                 break;
             }
 
-            // Updates previousCard for the next turn
-            previousCard = updatePreviousCard(currentCard);
+            // Updates the previous card and returns the current card
+            previousCard = currentCard;
         }
     }
 
