@@ -2,8 +2,12 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.*;
 
 public class Snap extends CardGame {
+
+    private Player playerOne;
+    private Player playerTwo;
 
     public Snap(ArrayList<Card> deckOfCards) {
         super(deckOfCards);
@@ -24,6 +28,17 @@ public class Snap extends CardGame {
         // Current card becomes the previous card
         return currentCard;
     }
+
+    public Snap(
+            ArrayList<Card> deckOfCards,
+            Player playerOne,
+            Player playerTwo
+    ) {
+        super(deckOfCards);
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
+    }
+
     public void play() {
 
         Scanner scanner = new Scanner(System.in);
@@ -59,6 +74,7 @@ public class Snap extends CardGame {
                 // Ends the game
                 break;
             }
+
             // Updates previousCard for the next turn
             previousCard = updatePreviousCard(currentCard);
         }
