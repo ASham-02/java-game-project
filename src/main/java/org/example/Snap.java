@@ -30,7 +30,7 @@ public class Snap extends CardGame {
     // Returns the next player
     public Player switchPlayer(Player currentPlayer) {
 
-        // Guard clause
+        // if current player is player one
         if (currentPlayer == playerOne) {
             return playerTwo;
         }
@@ -44,6 +44,9 @@ public class Snap extends CardGame {
         Scanner scanner = new Scanner(System.in);
 
         Card previousCard = null;
+
+        // Player one starts first
+        Player currentPlayer = playerOne;
 
         // Randomly shuffles the deck before starting
         shuffleDeck();
@@ -83,6 +86,9 @@ public class Snap extends CardGame {
 
             // Updates the previous card and returns the current card
             previousCard = currentCard;
+
+            // Switch turns
+            currentPlayer = switchPlayer(currentPlayer);
         }
     }
 
