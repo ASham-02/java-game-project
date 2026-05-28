@@ -39,19 +39,13 @@ public class Snap extends CardGame {
     }
 
     // Displays current player's turn
-    public void showTurnMessage(
-            Player currentPlayer
-    ) {
-        System.out.println(
-                currentPlayer.getName()
-                        + "'s turn. Press Enter."
-        );
+    public void showTurnMessage(Player currentPlayer) {
+        System.out.println(currentPlayer.getName() + "'s turn. Press Enter.");
     }
 
     // Waits for enter key
-    public void waitForEnter(
-            Scanner scanner
-    ) { scanner.nextLine();
+    public void waitForEnter(Scanner scanner) {
+        scanner.nextLine();
     }
 
     // Deals top card from deck
@@ -82,9 +76,8 @@ public class Snap extends CardGame {
     }
 
     // Updates previous card
-    public Card updatePreviousCard(
-            Card currentCard
-    ) { return currentCard;
+    public Card updatePreviousCard(Card currentCard) {
+        return currentCard;
     }
 
     public void play() {
