@@ -59,7 +59,6 @@ public class Snap extends CardGame {
     ) { return currentCard == null;
     }
 
-
     // Displays dealt card
     public void showCard(Card currentCard) {
         System.out.println("Card dealt: " + currentCard);
@@ -73,6 +72,36 @@ public class Snap extends CardGame {
     // Displays snap message
     public void showSnapMessage() {
         System.out.println("SNAP! You Win!");
+    }
+
+    // Checks if player typed snap in time
+    public boolean checkSnapTiming(
+            Scanner scanner
+    ) {
+
+        // Tells player to type snap
+        System.out.println(
+                "Type 'snap' within 2 seconds!"
+        );
+
+        // Stores start time
+        long startTime =
+                System.currentTimeMillis();
+
+        // Reads player input
+        String input =
+                scanner.nextLine();
+
+        // Stores end time
+        long endTime =
+                System.currentTimeMillis();
+
+        // Calculates total time taken
+        long timeTaken =
+                endTime - startTime;
+
+        return input.equalsIgnoreCase("snap")
+                && timeTaken <= 2000;
     }
 
     // Updates previous card
@@ -110,7 +139,6 @@ public class Snap extends CardGame {
 
             // Checks if deck empty
             if (isDeckEmpty(currentCard)) {
-
                 showGameOver();
                 break;
             }
@@ -118,16 +146,40 @@ public class Snap extends CardGame {
             // Displays dealt card
             showCard(currentCard);
 
-            // Checks for snap
-            if (isSnap(
-                    previousCard, currentCard)) {
+            if (isSnap(previousCard, currentCard)) {
+
                 showSnapMessage();
+
+                // Checks if player reacted in time
+                if (checkSnapTiming(scanner)) {
+
+                    System.out.println(
+                            currentPlayer.getName()
+                                    + " wins!"
+                    );
+
+                } else {
+
+                    // Other player wins
+                    Player otherPlayer =
+                            switchPlayer(currentPlayer);
+
+                    System.out.println(
+                            currentPlayer.getName()
+                                    + " was too slow."
+                    );
+
+                    System.out.println(
+                            otherPlayer.getName()
+                                    + " wins!"
+                    );
+                }
+
                 break;
             }
 
             // Updates previous card
-            previousCard = updatePreviousCard(
-                            currentCard);
+            previousCard = updatePreviousCard(currentCard);
 
             // Switch turns
             currentPlayer = switchPlayer(currentPlayer);
