@@ -8,6 +8,10 @@ public class CardGame {
     // Creates an ArrayList that will store all cards in the deck
     ArrayList<Card> deckOfCards = new ArrayList<Card>(); //Creates new deck to
 
+    public ArrayList<Card> getDeckOfCards() {
+        return deckOfCards;
+    }
+
     public CardGame(ArrayList<Card> deckOfCards) {
         this.deckOfCards = deckOfCards;
     }
@@ -55,11 +59,21 @@ public class CardGame {
         return deckOfCards;
     }
 
-    public ArrayList<Card> getDeckOfCards() {
+    // Sorts deck by card value first
+    public ArrayList<Card> sortDeckInNumberOrder() {
+        // Sorts cards by numerical value
+        deckOfCards.sort(
+                (card1, card2) ->
+                        card1.getValue()
+                                - card2.getValue()
+        );
+        // Returns sorted deck
         return deckOfCards;
     }
-    // Uses Java Collections utility class to shuffle cards
-    public void shuffleDeck () {
+
+    // Randomly shuffles deck
+    public ArrayList<Card> shuffleDeck() {
         Collections.shuffle(deckOfCards);
+        return deckOfCards;
     }
 }
