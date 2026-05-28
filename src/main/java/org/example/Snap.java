@@ -67,9 +67,7 @@ public class Snap extends CardGame {
 
 
     // Displays dealt card
-    public void showCard(
-            Card currentCard
-    ) {
+    public void showCard(Card currentCard) {
         System.out.println("Card dealt: " + currentCard);
     }
 
@@ -89,12 +87,11 @@ public class Snap extends CardGame {
     ) { return currentCard;
     }
 
-
-
     public void play() {
 
         Scanner scanner = new Scanner(System.in);
 
+        //Stores previous card
         Card previousCard = null;
 
         // Player one starts first
@@ -109,34 +106,38 @@ public class Snap extends CardGame {
 
         while (true) {
 
-            // Waits for the player to press Enter
-            scanner.nextLine();
+            // Displays current turn
+            showTurnMessage(currentPlayer);
+
+            // Waits for enter
+            waitForEnter(scanner);
 
             // Deals the top card from the deck
             Card currentCard = dealCard();
 
-            // Checks if the deck is empty
-            if (currentCard == null) {
-                // Ends the game if no cards remain
-                System.out.println("No cards left. Game over.");
-                break;
-            }
-            // Prints the dealt card
-            System.out.println("Card dealt: " + currentCard);
+            // Checks if deck empty
+            if (isDeckEmpty(currentCard)) {
 
-            // Checks if the previous card and current card match
-            if (isSnap(previousCard, currentCard)) {
-                System.out.println("SNAP! You Win!");
-                // Ends the game
+                showGameOver();
                 break;
             }
 
-            // Updates the previous card and returns the current card
-            previousCard = currentCard;
+            // Displays dealt card
+            showCard(currentCard);
+
+            // Checks for snap
+            if (isSnap(
+                    previousCard, currentCard)) {
+                showSnapMessage();
+                break;
+            }
+
+            // Updates previous card
+            previousCard = updatePreviousCard(
+                            currentCard);
 
             // Switch turns
             currentPlayer = switchPlayer(currentPlayer);
         }
     }
-
 }
