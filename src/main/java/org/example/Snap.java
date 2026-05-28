@@ -34,10 +34,62 @@ public class Snap extends CardGame {
         if (currentPlayer == playerOne) {
             return playerTwo;
         }
-
         // Otherwise return player one
         return playerOne;
     }
+
+    // Displays current player's turn
+    public void showTurnMessage(
+            Player currentPlayer
+    ) {
+        System.out.println(
+                currentPlayer.getName()
+                        + "'s turn. Press Enter."
+        );
+    }
+
+    // Waits for enter key
+    public void waitForEnter(
+            Scanner scanner
+    ) { scanner.nextLine();
+    }
+
+    // Deals top card from deck
+    public Card dealCurrentCard() {
+        return dealCard();
+    }
+
+    // Checks if card is null
+    public boolean isDeckEmpty(
+            Card currentCard
+    ) { return currentCard == null;
+    }
+
+
+    // Displays dealt card
+    public void showCard(
+            Card currentCard
+    ) {
+        System.out.println("Card dealt: " + currentCard);
+    }
+
+    // Displays game over message
+    public void showGameOver() {
+        System.out.println("No cards left. Game over.");
+    }
+
+    // Displays snap message
+    public void showSnapMessage() {
+        System.out.println("SNAP! You Win!");
+    }
+
+    // Updates previous card
+    public Card updatePreviousCard(
+            Card currentCard
+    ) { return currentCard;
+    }
+
+
 
     public void play() {
 
@@ -56,8 +108,6 @@ public class Snap extends CardGame {
         System.out.println("Press Enter to deal a card.");
 
         while (true) {
-
-            System.out.println(currentPlayer.getName() + " turn. Please press enter.");
 
             // Waits for the player to press Enter
             scanner.nextLine();
